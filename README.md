@@ -1,4 +1,4 @@
-# LLM-Oriented Design Patterns
+# LLM-Oriented Design (LOD) Patterns
 
 ### Abandon Human Readability. Reforge the Laws of Gears, Feedback Loops, and Tools.
 
@@ -12,11 +12,18 @@
 
 ---
 
+## TLDR
+
+Copy [`LOD-for-LLM.md`](LOD-for-LLM.md) into your project's `CLAUDE.md`, `.cursorrules`, or system prompt. The three principles take effect immediately.
+
+**For code review**: Use the [Summary Checklist](LOD-for-LLM.md#summary-checklist) to audit any codebase against the three principles.
+
+
 ## The Problem
 
 Even with 1M-token context windows, the **"Lost in the Middle"** effect persists. Long, human-friendly code dilutes model attention, leading to degraded reasoning and increased hallucinations.
 
-A 665-line god class forces the LLM to consume **~2,700 tokens** just to modify a single method. A monolithic 595-line entry point mixes 8 concerns into one unnavigable file. Factory-of-factory patterns create indirection chains that no model can reliably trace.
+e.g., A 665-line god class forces the LLM to consume **~2,700 tokens** just to modify a single method. A monolithic 595-line entry point mixes 8 concerns into one unnavigable file. Factory-of-factory patterns create indirection chains that no model can reliably trace.
 
 **Your codebase isn't just hard for AI to read. It's actively making AI dumber.**
 
@@ -25,20 +32,20 @@ A 665-line god class forces the LLM to consume **~2,700 tokens** just to modify 
 ## Three Principles
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                    LLM-Oriented Design Patterns                        │
-│                                                                        │
-│   ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐       │
-│   │                 │  │                 │  │                 │       │
-│   │    CONTEXT      │  │    FEEDBACK     │  │                 │       │
-│   │   MANAGEMENT    │  │      LOOP       │  │    TOOLING      │       │
-│   │                 │  │                 │  │                 │       │
-│   │  Compress what  │  │  Detect, adapt, │  │  Seal what must │       │
+┌───────────────────────────────────────────────────────────────────────┐
+│                    LLM-Oriented Design Patterns                       │
+│                                                                       │
+│   ┌─────────────────┐  ┌─────────────────┐  ┌──────────────────┐      │
+│   │                 │  │                 │  │                  │      │
+│   │    CONTEXT      │  │    FEEDBACK     │  │                  │      │
+│   │   MANAGEMENT    │  │      LOOP       │  │     TOOLING      │      │
+│   │                 │  │                 │  │                  │      │
+│   │  Compress what  │  │  Detect, adapt, │  │  Seal what must  │      │
 │   │  AI must read   │  │  and self-heal  │  │  be deterministic│      │
-│   │                 │  │                 │  │                 │       │
-│   └─────────────────┘  └─────────────────┘  └─────────────────┘       │
-│                                                                        │
-└─────────────────────────────────────────────────────────────────────────┘
+│   │                 │  │                 │  │                  │      │
+│   └─────────────────┘  └─────────────────┘  └──────────────────┘      │
+│                                                                       │
+└───────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -156,14 +163,6 @@ Engineers mastering these three principles are no longer if-else laborers. We be
 > Let AI compute power **assemble**, **refactor**, and **evolve**.
 
 ---
-
-## Quick Start
-
-**For humans**: Start with [`LOD-for-human.md`](LOD-for-human.md). Read the Prologue and whichever Part matches your immediate need.
-
-**For your AI tools**: Copy [`LOD-for-LLM.md`](LOD-for-LLM.md) into your project's `CLAUDE.md`, `.cursorrules`, or system prompt. The three principles take effect immediately.
-
-**For code review**: Use the [Summary Checklist](LOD-for-LLM.md#summary-checklist) to audit any codebase against the three principles.
 
 ## Contributing
 
